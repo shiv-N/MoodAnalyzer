@@ -16,7 +16,6 @@ namespace MoodAnalyzerTest
         [Test]
         public void GivenSadMoodShouldReturnSAD()
         {
-            Assert.Pass();
             // Arrange
             string expected = "SAD";
             string message = "I am in Sad Mood";
@@ -29,5 +28,22 @@ namespace MoodAnalyzerTest
             Assert.AreEqual(expected, mood);
         }
 
+        /// <summary>
+        /// TC 1.2: Given “I am in Any Mood” message Should Return HAPPY
+        /// </summary>
+        [Test]
+        public void GivenAnyMoodShouldReturnSAD()
+        {
+            // Arrange
+            string expected = "HAPPY";
+            string message = "I am in Any Mood";
+            MoodAnalyse moodAnalyse = new MoodAnalyse();
+
+            // Act
+            string mood = moodAnalyse.AnalyseMood(message);
+
+            // Assert
+            Assert.AreEqual(expected, mood);
+        }
     }
 }
