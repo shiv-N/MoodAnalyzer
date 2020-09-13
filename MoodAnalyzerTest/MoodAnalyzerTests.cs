@@ -47,16 +47,21 @@ namespace MoodAnalyzerTest
         }
 
         /// <summary>
-        /// TC 2.1: Given null mood Should Return HAPPY
+        /// TC 3.1: Given NULL Mood Should Throw MoodAnalysisException.
         /// </summary>
         [Test]
-        public void GivenNullMoodShouldReturnHAPPY()
+        public void Given_NULL_Mood_Should_Throw_MoodAnalysisException()
         {
-            string expected = "HAPPY";
-            string message = null;
-            MoodAnalyse moodAnalyse = new MoodAnalyse(message);
-            string mood = moodAnalyse.AnalyseMood();
-            Assert.AreEqual(expected, mood);
+            try
+            {
+                string message = null;
+                MoodAnalyse moodAnalyse = new MoodAnalyse(message);
+                string mood = moodAnalyse.AnalyseMood();
+            }
+            catch(MoodAnalysisException e)
+            {
+                Assert.AreEqual("Mood should not be null", e.Message);
+            }
         }
     }
 }
